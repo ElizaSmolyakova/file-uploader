@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="container kv-main">
+    <form enctype="multipart/form-data" method="POST" action="/upload">
+        <div class="form-group">
+            <input id="file-1" name="file" type="file" multiple class="file"
+                   data-overwrite-initial="false" data-min-file-count="1">
+        </div>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+    <h2>All Uploaded Files:</h2>
+    <ul>
+        <li th:each="file : ${files}">
+            <a th:href="@{|/download/${file}|}"><span th:text="${file}"></span></a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
